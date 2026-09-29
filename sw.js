@@ -1,8 +1,8 @@
 // Bump VERSION on every shell/catalogue change. New versions activate after all old tabs close.
-const VERSION='v3';
+const VERSION='v4';
 const PREFIX=`culture-radio:${self.registration.scope}:`;
 const CACHE=PREFIX+VERSION;
-const SHELL=['./','./index.html','./styles.css','./app.js','./auth.js','./config.js','./vendor/supabase.js','./stations.js','./manifest.webmanifest','./assets/icon.svg','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable.png','./assets/flex.png','./assets/centreforce.png','./assets/rinse.svg','./assets/kool.svg','./assets/pointblank.webp','./assets/ukbass.png','./assets/eruption.png','./assets/sub.png'];
+const SHELL=['./','./index.html','./styles.css','./app.js','./auth.js','./config.js','./vendor/supabase.js','./stations.js','./manifest.webmanifest','./assets/icon.svg','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable.png','./assets/flex.png','./assets/centreforce.png','./assets/rinse.svg','./assets/kool.svg','./assets/pointblank.webp','./assets/ukbass.png','./assets/eruption.png','./assets/sub.png','./assets/select.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith(PREFIX)&&key!==CACHE)await caches.delete(key);await self.clients.claim();})()));
 self.addEventListener('fetch',event=>{
