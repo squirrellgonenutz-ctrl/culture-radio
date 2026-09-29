@@ -1,0 +1,12 @@
+// Keep this catalogue independent of the player. Sources and checks: docs/STATIONS.md.
+export const genres = ['All', 'UKG', 'House', 'Old Skool', 'Bassline', 'D&B / Jungle', 'Trance', 'Dance'];
+export const stations = [
+  {id:'flex',name:'Flex FM 101.4',description:'Past. Present. Future.',genres:['UKG','House','D&B / Jungle','Old Skool','Dance'],url:'https://stream.cotswoldgrp.com:8021/flex',website:'https://flexfm.co.uk/',art:'./assets/flex.png',quality:'320 kbps · MP3',tint:'#173b5c'},
+  {id:'centreforce',name:'Centreforce 883',description:'The sound of a generation.',genres:['House','Old Skool','Dance'],url:'https://listen2.centreforceradio.com:8830/192',website:'https://centreforceradio.com/',art:'./assets/centreforce.png',quality:'192 kbps · MP3',tint:'#544522'},
+  {id:'rinse',name:'Rinse FM',description:'Forward-thinking underground radio.',genres:['UKG','House','Bassline','Dance'],url:'https://admin.stream.rinse.fm/proxy/rinse_uk/stream',website:'https://www.rinse.fm/',art:'./assets/rinse.svg',quality:'128 kbps · AAC',tint:'#192f60'},
+  {id:'kool',name:'Kool FM',description:'Jungle and drum & bass culture.',genres:['D&B / Jungle','Old Skool'],url:'https://admin.stream.rinse.fm/proxy/kool/stream',website:'https://www.rinse.fm/channels/kool/',art:'./assets/kool.svg',quality:'128 kbps · AAC',tint:'#375324'},
+  {id:'pointblank',name:'Point Blank Radio',description:'Underground since 1994.',genres:['House','Dance'],url:'https://pointblankradio.co.uk/stream.mp3',website:'https://www.pointblankradio.com/',art:'./assets/pointblank.webp',quality:'128 kbps · MP3',tint:'#5b2527'},
+  {id:'ukbass',name:'UK Bass Radio',description:'The sound of the underground.',genres:['D&B / Jungle','UKG','Old Skool'],url:'https://ukbassradio.com/stream',website:'https://www.ukbassradio.com/',art:'./assets/ukbass.png',quality:'192 kbps · MP3',tint:'#433051'},
+  {id:'eruption',name:'Eruption Radio',description:'The original underground sound.',genres:['Old Skool','D&B / Jungle','House'],url:'https://cosmo.shoutca.st/proxy/eruptionradio/stream',website:'https://www.eruptionradio.uk/',art:'./assets/eruption.png',quality:'320 kbps · MP3',tint:'#58301b'},
+  {id:'sub',name:'Sub FM',description:'Where bass matters.',genres:['UKG','Bassline','D&B / Jungle'],url:'https://fmsub.radioca.st/Sub.FM',website:'https://www.sub.fm/',art:'./assets/sub.png',quality:'192 kbps · MP3',tint:'#23434a'}
+];

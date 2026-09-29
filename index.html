@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080d14"><meta name="description" content="Culture Radio. Underground sounds for the road. Your favourite UK radio, in one place.">
+  <link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./styles.css"><script defer src="./vendor/supabase.js"></script><script type="module" src="./app.js"></script>
+  <title>Culture Radio</title>
+</head>
+<body>
+  <section id="auth-screen" class="auth-screen" aria-labelledby="auth-title">
+    <div class="auth-brand"><span class="brand-mark">C<span>↗</span></span><p class="eyebrow">CAR CULTURE GARAGE / CULTURE RADIO</p><h1>Your sound.<br>Your culture.</h1><p>Underground radio. One place.<br>Sign in and take your favourites with you.</p><div class="auth-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="auth-card"><p class="eyebrow">WELCOME TO CULTURE</p><h2 id="auth-title">Sign in.</h2><p id="auth-subtitle">Your stations. Ready when you are.</p><form id="auth-form"><label id="name-field" hidden>Display name<input id="auth-name" type="text" autocomplete="nickname" maxlength="40"></label><label id="email-field">Email address<input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com"></label><label id="password-field">Password<input id="auth-password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="Enter your password"></label><p id="auth-message" role="status" aria-live="polite"></p><button id="auth-submit" class="auth-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button></form><button id="auth-reset" class="text-button">Forgot your password?</button><div class="auth-divider"></div><p id="auth-switch-label">New to the culture?</p><button id="auth-switch" class="outline">Create an account</button><p class="auth-privacy">Your favourites are private to your account. Email and password sign-in is handled securely by Supabase.</p></div>
+  </section>
+  <div id="radio-app" hidden>
+  <a class="skip" href="#stations">Skip to stations</a>
+  <header class="header"><a href="./" class="brand" aria-label="Culture Radio home"><span class="brand-mark">C<span>↗</span></span><span>CULTURE<small>R A D I O</small></span></a><div class="header-actions"><span id="account-name" class="edition">CAR CULTURE GARAGE</span><button id="sign-out" class="text-button">Sign out</button><button id="install" class="outline">Install app <span aria-hidden="true">↗</span></button></div></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">UNDERGROUND SOUNDS. OPEN ROADS.</p><h1>Your frequency.</h1></div><span class="signal"><i></i> INDEPENDENT RADIO</span></div>
+    <div id="network" class="notice" role="status" hidden>You’re offline. Your stations are here; reconnect to listen live.</div>
+    <p id="sync-status" class="sync-status" role="status"></p>
+    <div class="layout">
+      <section class="now" aria-labelledby="now-heading">
+        <div class="section-top"><h2 id="now-heading">NOW PLAYING</h2><span id="status-pill" class="status-pill">READY</span></div>
+        <div class="record"><div class="record-ring"></div><div class="now-art"><img id="now-art" src="./assets/flex.png" alt="Flex FM artwork" width="512" height="512"></div><span class="record-number" aria-hidden="true">CULTURE / 001</span></div>
+        <div class="now-info"><div><p class="eyebrow" id="now-genres">UKG · HOUSE · D&B / JUNGLE</p><h3 id="now-name">Flex FM 101.4</h3><p id="now-description">Past. Present. Future.</p></div><button id="now-favourite" class="icon-button heart" aria-label="Add Flex FM 101.4 to favourites" aria-pressed="false">♡</button></div>
+        <p id="player-status" class="player-status" role="status" aria-live="polite">Choose a station and press play.</p>
+        <div class="transport"><button id="previous" class="icon-button skip-button" aria-label="Previous station">❮❮</button><button id="play" class="play-button" aria-label="Play"><span aria-hidden="true">▶</span></button><button id="next" class="icon-button skip-button" aria-label="Next station">❯❯</button></div>
+        <div class="volume"><label for="volume">Volume</label><input id="volume" type="range" min="0" max="1" step="0.01" value="0.8"><output id="volume-value" for="volume">80%</output></div>
+        <div class="now-footer"><span id="quality">LIVE RADIO</span><a id="station-site" href="https://flexfm.co.uk/" target="_blank" rel="noopener noreferrer">Station website ↗</a></div>
+      </section>
+      <section class="library" aria-labelledby="stations-heading" id="stations">
+        <div class="library-heading"><h2 id="stations-heading">Find your sound<span>.</span></h2><span id="station-count">8 STATIONS</span></div>
+        <div class="browse-row"><div class="tabs" role="group" aria-label="Station collection"><button id="all-tab" class="tab active" aria-pressed="true">All stations</button><button id="favourites-tab" class="tab" aria-pressed="false">Favourites <span id="favourite-count">0</span></button></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search stations" aria-label="Search stations"></label></div>
+        <div id="genres" class="genres" role="group" aria-label="Filter by genre"></div>
+        <div id="station-grid" class="station-grid"></div>
+        <div id="empty" class="empty" hidden><h3>No stations here yet.</h3><p id="empty-message"></p><button id="clear" class="outline">Show all stations</button></div>
+        <p class="library-note">Curated for the culture. Broadcasting from the source.</p>
+      </section>
+    </div>
+    <footer class="footer"><span>CULTURE RADIO <b>/</b> VOL. 01</span><button id="help" class="text-button">Phone & car setup</button><span class="footer-tag">BUILT FOR THE LOVE OF IT.</span></footer>
+  </main>
+  </div>
+  <dialog id="help-dialog"><form method="dialog"><button class="dialog-close icon-button" aria-label="Close setup guide">×</button></form><p class="eyebrow">TAKE THE CULTURE WITH YOU</p><h2>From phone to ST.</h2><ol><li>Open the live HTTPS app address in Samsung Internet or Chrome.</li><li>Tap <strong>Install app</strong>, or use the browser menu: <strong>Add page to → Home screen</strong> (Samsung Internet), or <strong>Add to Home screen / Install app</strong> (Chrome). Wording varies by version.</li><li>Pair your phone with the ST stereo, select Bluetooth audio, then press play while parked.</li></ol><p>Lock-screen and Bluetooth controls are supported where your browser allows them. Samsung battery settings may interrupt background audio; if that happens, allow background activity for the browser you installed from.</p><p>This is a phone app, not an Android Auto app. Live radio needs an internet connection. Offline mode keeps the interface and favourites available, not recordings. Now Playing identifies the station; live song titles are not provided in this first version.</p><p class="muted">Station names and artwork belong to their respective owners. Culture Radio is an independent player, not affiliated with the stations.</p></dialog>
+  <noscript><p class="notice">Enable JavaScript to use the radio player.</p></noscript>
+</body>
+</html>
